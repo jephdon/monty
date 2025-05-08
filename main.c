@@ -11,7 +11,7 @@ stack_t *global_stack = NULL;
  */
 int main(int argc, char *argv[])
 {
-	FILE *file;
+	FILE *file = NULL;
 	char line[100];
 	unsigned int line_number = 0;
 	char *opcode;
@@ -52,15 +52,13 @@ int main(int argc, char *argv[])
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 				free_stack(global_stack);
-				if (file != NULL)
-					fclose(file);
+				fclose(file);
 				exit(EXIT_FAILURE);
 			}
 			i++;
 		}
 	}
 	free_stack(global_stack);
-	if (file != NULL)
-		fclose(file);
+	fclose(file);
 	return (0);
 }
