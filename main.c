@@ -48,14 +48,14 @@ int main(int argc, char *argv[])
 				ops[i].f(&global_stack, line_number);
 				break;
 			}
-			if (ops[i + 1].opcode == NULL)
-			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-				free_stack(global_stack);
-				fclose(file);
-				exit(EXIT_FAILURE);
-			}
 			i++;
+		}
+		if (ops[i].opcode == NULL)
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			free_stack(global_stack);
+			fclose(file);
+			exit(EXIT_FAILURE);
 		}
 	}
 	free_stack(global_stack);
