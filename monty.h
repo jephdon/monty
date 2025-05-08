@@ -41,5 +41,6 @@ void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 int is_integer(const char *str);
+void op_pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
